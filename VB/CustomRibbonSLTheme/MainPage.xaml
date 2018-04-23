@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="CustomRibbonSLTheme.MainPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"    
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"         
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"        
+    xmlns:local="clr-namespace:CustomRibbonSLTheme"      
+    d:DesignHeight="273" d:DesignWidth="633">
+
+    <dxb:BarManager>
+        <dxb:BarManager.Items>
+            <dxb:BarButtonItem x:Name="biButton" Content="Button" LargeGlyph="images/LargeGlyph.png" Glyph="images/SmallGlyph.png"/>
+            <dxb:BarSplitButtonItem x:Name="biSplitButton" Content="Split Button" LargeGlyph="images/new-32x32.png" Glyph="images/new-16x16.png">
+                <dxb:BarSplitButtonItem.PopupControl>
+                    <dxb:PopupMenuInfo >
+                        <dxb:BarButtonItemLink BarItemName="biButton"/>
+                        <dxb:BarButtonItemLink BarItemName="biButton"/>
+                    </dxb:PopupMenuInfo>
+                </dxb:BarSplitButtonItem.PopupControl>
+            </dxb:BarSplitButtonItem>
+            <dxb:BarSubItem x:Name="biSubItem1" Content="Sub Item" LargeGlyph="images/save-32x32.png" Glyph="images/save-16x16.png">
+                <dxb:BarSubItem.ItemLinks>
+                    <dxb:BarButtonItemLink BarItemName="biButton"/>
+                    <dxb:BarSplitButtonItemLink BarItemName="biButton"/>
+                </dxb:BarSubItem.ItemLinks>
+            </dxb:BarSubItem>
+            <dxb:BarSubItem x:Name="biSubItem2" Content="Sub Item" LargeGlyph="images/open-32x32.png" Glyph="images/open-16x16.png">
+                <dxb:BarSubItem.ItemLinks>
+                    <dxb:BarButtonItemLink BarItemName="biButton"/>
+                    <dxb:BarSubItemLink BarItemName="biSubItem1"/>
+                    <dxb:BarSplitButtonItemLink BarItemName="biSplitButton"/>
+                </dxb:BarSubItem.ItemLinks>
+            </dxb:BarSubItem>
+
+        </dxb:BarManager.Items>
+        <dxb:BarManager.Bars>
+            <dxb:Bar IsMainMenu="True"  Caption="MainMenu" GlyphSize="Small"  >
+                <dxb:Bar.DockInfo>
+                    <dxb:BarDockInfo ContainerType="Top"/>
+                </dxb:Bar.DockInfo>
+
+                <dxb:Bar.ItemLinks>
+                    <dxb:BarButtonItemLink BarItemName="biButton" BarItemDisplayMode="ContentAndGlyph" />
+                    <dxb:BarSplitButtonItemLink BarItemName="biSplitButton" BarItemDisplayMode="ContentAndGlyph"/>
+                    <dxb:BarSubItemLink BarItemName="biSubItem2" BarItemDisplayMode="ContentAndGlyph"/>
+                </dxb:Bar.ItemLinks>
+            </dxb:Bar>
+            <dxb:Bar >
+                <dxb:Bar.ItemLinks>
+                    <dxb:BarButtonItemLink BarItemName="biButton"/>
+                    <dxb:BarSplitButtonItemLink BarItemName="biSplitButton" />
+                    <dxb:BarSubItemLink BarItemName="biSubItem2" />
+                </dxb:Bar.ItemLinks>
+            </dxb:Bar>
+            <dxb:Bar IsStatusBar="True">
+                <dxb:Bar.DockInfo>
+                    <dxb:BarDockInfo ContainerType="Bottom"/>
+                </dxb:Bar.DockInfo>
+                <dxb:Bar.ItemLinks>
+                    <dxb:BarButtonItemLink BarItemName="biButton"/>
+                    <dxb:BarSplitButtonItemLink BarItemName="biSplitButton" />
+                    <dxb:BarSubItemLink BarItemName="biSubItem2" />
+                </dxb:Bar.ItemLinks>
+            </dxb:Bar>
+        </dxb:BarManager.Bars>
+        
+    </dxb:BarManager>
+</UserControl>
